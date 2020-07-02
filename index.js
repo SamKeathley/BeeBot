@@ -1,19 +1,25 @@
 const Discord = require('discord.js');
-const { prefix, token } = require('./config.json');
 const client = new Discord.Client();
+require('dotenv').config();
+
+const config = {
+    prefix: process.env.PREFIX,
+    token: process.env.TOKEN,
+    owner: process.env.OWNER
+}
 
 client.on('message', message => {
-    if (!message.content.startsWith(prefix) || message.author.bot) return;
+    if (!message.content.startsWith(config.prefix) || message.author.bot) return;
 
-    const args = message.content.slice(prefix.length).split(/ +/);
+    const args = message.content.slice(config.prefix.length).split(/ +/);
     const command = args.shift().toLowerCase();
-    if (message.content === `${prefix}ping`) {
+    if (message.content === `${config.prefix}ping`) {
         message.channel.send('Pong.');
-    } else if (message.content === `${prefix}beep`) {
+    } else if (message.content === `${config.prefix}beep`) {
         message.channel.send('Boop.');
-    } else if (message.content === `${prefix}server`) {
+    } else if (message.content === `${config.prefix}server`) {
         message.channel.send(`This server's name is: ${message.guild.name}`);
-    } else if (message.content === `${prefix}user-info`) {
+    } else if (message.content === `${config.prefix}user-info`) {
         message.channel.send(`Your username: ${message.author.username}\nYour ID: ${message.author.id}`);
     } else if (command === 'args-info') {
         if (!args.length) {
@@ -55,4 +61,4 @@ client.once('ready', () => {
     console.log('Ready!');
 });
 
-client.login(token);
+client.login(config.token);
