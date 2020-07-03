@@ -1,15 +1,18 @@
 const fs = require('fs');
 const Discord = require('discord.js');
-const { prefix, token } = require('./config.json');
+const GphApiClient = require('giphy-js-sdk-core');
 require('dotenv').config();
 
 const config = {
     prefix: process.env.PREFIX,
-    token: process.env.TOKEN
+    token: process.env.TOKEN,
+    giphy: process.env.GIPHY_KEY
 }
 
 const client = new Discord.Client();
 client.commands = new Discord.Collection();
+
+giphy = GphApiClient(config.giphy);
 
 const commandFiles = fs.readdirSync('./commands').filter(file => file.endsWith('.js'));
 
@@ -27,7 +30,7 @@ client.once('ready', () => {
 client.on('message', message => {
     if (!message.content.startsWith(config.prefix) || message.author.bot) return;
 
-    const args = message.content.slice(prefix.length).split(/ +/);
+    const args = message.content.slice(config.prefix.length).split(/ +/);
     const commandName = args.shift().toLowerCase();
 
     const command = client.commands.get(commandName)
