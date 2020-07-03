@@ -1,5 +1,3 @@
-const { GuildMember } = require("discord.js");
-
 module.exports = {
     name: 'bee',
     description: 'Sends a random bee related gif.',
