@@ -3,6 +3,10 @@ I built this bot for fun and for learning purposes. This is my very first Discor
 
 Cowboy Bee Bot is a bot that loves bees. They’re happy to tell you a random bee-related fact and will even show you a random bee gif, all you need to do is ask!
 
+### Demo
+---
+![CowboyBeeBotDemo](CowboyBeeBot.gif)
+
 ### Frameworks & Libraries
 ---
 - [Discord.js](https://discord.js.org/#/)

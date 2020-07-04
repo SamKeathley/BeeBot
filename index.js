@@ -75,7 +75,7 @@ client.on('message', message => {
         command.execute(message, args);
     } catch (error) {
         console.error(error);
-        message.reply('Yikes! There was an error trying to execute that command!');
+        message.reply('Consart-it! There was a dang hiccup with that command!');
     }
 });
 
