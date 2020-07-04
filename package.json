@@ -1,12 +1,21 @@
 {
   "name": "bee-bot",
   "version": "1.0.0",
-  "description": "",
+  "description": "A discord bot with bee facts and gifs",
   "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+  "engines": {
+    "node": "14.1.0",
+    "npm": "*"
   },
-  "author": "",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SamKeathley/BeeBot.git"
+  },
+  "author": "SamKeathley",
   "license": "ISC",
   "dependencies": {
     "discord.js": "^12.2.0",
